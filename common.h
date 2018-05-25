@@ -8,8 +8,8 @@ const long DHT_TIME = (10 * MINUTE);
 const long NTP_TIME = (5 * MINUTE);
 const int DHTPIN = D6; // Pin D6
 const int DHTTYPE = DHT11;   // DHT 11
-static const char* ssid = "P874-21-2-3F"; //  network SSID
-static const char* pass  = "077190028";     // network password
+static const char* ssid = "your-ssid"; //  network SSID
+static const char* pass  = "your=password";     // network password
 const unsigned int localPort = 8888;  // local port to listen for UDP packets
 
 static const char* GCALURL = "https://script.google.com/macros/s/AKfycbwY2YIhEJeJc3GbmubJ4diF-R8mYYCfEiHH49LnxS70AvGRPskt/exec";
