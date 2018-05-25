@@ -1,11 +1,12 @@
 /*
 
-JSON format:
+JSON format: (on successful read)
 
 {
 "success":"OK",
 "eventsToday":[
-{"title":"Dentist Chi","time":" 11:00"},
+{"title":"TV delivery","time":" 11:00"},
+{"title":"Carol birthday","time":" 11:00"},
 {"title":"Forecast (27° | 24°)","time":" "}
 etc
 ],
@@ -16,7 +17,7 @@ etc
 ]
 }
 
-or
+or (on error)
 
 {
 "success":"NOK",
