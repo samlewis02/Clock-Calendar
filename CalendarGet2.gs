@@ -6,7 +6,7 @@ JSON format:
 "success":"OK",
 "eventsToday":
 [
-{"title":"Dentist Chi","time":" 11:00"},
+{"title":"TV delivery","time":" 11:00"},
 {"title":"Forecast (27C | 24C)","time":" "}
 etc
 ],
