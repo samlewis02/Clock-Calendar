@@ -23,8 +23,8 @@ double parse_json(String r)
     return 0;
   }
   else {
-    double GBPrate = root["rates"]["GBP"];
-    double TWDrate = root["rates"]["TWD"];
-    return TWDrate / GBPrate;
+    double sourceRate = root["rates"]["FROM_CURR"];
+    double targetRate = root["rates"]["TO_CURR"];
+    return targetRate / sourceRate;
    }
 }
