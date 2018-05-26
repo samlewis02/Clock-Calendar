@@ -12,11 +12,11 @@ static const char* ssid = "your-ssid"; //  network SSID
 static const char* pass  = "your=password";     // network password
 const unsigned int localPort = 8888;  // local port to listen for UDP packets
 
-static const char* GCALURL = "https://script.google.com/macros/s/AKfycbwY2YIhEJeJc3GbmubJ4diF-R8mYYCfEiHH49LnxS70AvGRPskt/exec";
+static const char* GCALURL = "https://script.google.com/macros/s/your-script-key/exec";
 static const char* host = "script.google.com";
 const int httpsPort = 443;
 
-static const char* CURRURL = "http://data.fixer.io/api/latest?access_key=0a371f7901a6260a0ea11865f1ad98da&symbols=TWD,GBP&format=1";
+static const char* CURRURL = "http://data.fixer.io/api/latest?access_key=your-access-key&symbols=TWD,GBP&format=1";
 
 const int NTP_PACKET_SIZE = 48; // NTP time is in the first 48 bytes of message
 static byte packetBuffer[NTP_PACKET_SIZE]; //buffer to hold incoming & outgoing packets
