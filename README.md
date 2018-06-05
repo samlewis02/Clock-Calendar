@@ -29,3 +29,6 @@ ESP8266HTTPClient
 ESP8266Wifi
 WifiUdp
 
+Wiring from Wemos D1 mini to Waveshare display:
+BUSY -> D2, RST -> D4, DC -> D3, CS -> D8, CLK -> D5, DIN -> D7, GND -> GND, 3.3V -> 3.3V
+
