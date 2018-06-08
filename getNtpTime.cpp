@@ -7,7 +7,7 @@
 #include <WiFiUdp.h>
 #include <ESP8266WiFi.h>
 #include "TimeLib.h"
-#include "DHT.h"
+#include "DHTnew.h"
 #include "common.h"
 #include "getNtpTime.h"
 #include "DebugMacros.h"

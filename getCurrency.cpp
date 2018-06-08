@@ -6,7 +6,7 @@
 // Returns: JSON string which can be parsed
 //
 #include "Arduino.h"
-#include "DHT.h"
+#include "DHTnew.h"
 #include "common.h"
 #include <ESP8266HTTPClient.h>
 #include "getCurrency.h"

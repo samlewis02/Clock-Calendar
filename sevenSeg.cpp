@@ -9,7 +9,7 @@
 //             color: GxEPD_WHITE or GxEPD_BLACK
 //
 #include "Arduino.h"
-#include "DHT.h"
+#include "DHTnew.h"
 #include "common.h"
 #include <GxGDEW042T2/GxGDEW042T2.h>      // 4.2" b/w
 #include "sevenSeg.h"
@@ -28,7 +28,7 @@ void vseg (uint16_t x0, uint16_t y0, uint16_t l, uint16_t color) {
 
 void show7seg (uint16_t x0, uint16_t y0, byte num, uint16_t color) {
   if (num < 10) {
-  byte sh1 = B10000000;
+  byte sh1 = B10000000; // bit shift and mask
   if (segs[num] & (sh1 >>= 1) ) vseg(x0 + 42, y0 + 46, 40, color); // bottom right
   if (segs[num] & (sh1 >>= 1) ) vseg(x0,      y0 + 46, 40, color); // bottom left
   if (segs[num] & (sh1 >>= 1) ) hseg(x0 + 4,  y0 + 84, 40, color); // bottom

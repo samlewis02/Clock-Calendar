@@ -1,5 +1,5 @@
 #include <WiFiClientSecure.h>
-#include "DHT.h"
+#include "DHTnew.h"
 #include "getCalendar.h"
 #include "common.h"
 #include "DebugMacros.h"

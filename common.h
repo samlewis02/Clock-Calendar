@@ -3,26 +3,27 @@
 const long MINUTE = (60 * 1000);
 const long HOUR = (MINUTE * 60);
 const long GCAL_TIME = (10 * MINUTE);
-const long CURR_TIME = (12 * HOUR);
+const long CURR_TIME = (1 * HOUR); // NB 1000 per month maximum
 const long DHT_TIME = (10 * MINUTE);
 const long NTP_TIME = (5 * MINUTE);
-const int DHTPIN = D6; // Pin D6
-const int DHTTYPE = DHT11;   // DHT 11
-static const char* ssid = "your-ssid"; //  network SSID
-static const char* pass  = "your=password";     // network password
+const uint8_t DHTPIN = D1; // Pin D6
+const DHTModel_t DHTTYPE = DHT_MODEL_DHT11;   // DHT 11
+static const char* ssid = "P874-21-2-3F"; //  network SSID
+static const char* pass  = "077190028";     // network password
 const unsigned int localPort = 8888;  // local port to listen for UDP packets
 
-static const char* GCALURL = "https://script.google.com/macros/s/your-script-key/exec";
+static const char* GCALURL = "https://script.google.com/macros/s/AKfycbwY2YIhEJeJc3GbmubJ4diF-R8mYYCfEiHH49LnxS70AvGRPskt/exec";
 static const char* host = "script.google.com";
 const int httpsPort = 443;
 
-static const char* CURRURL = "http://data.fixer.io/api/latest?access_key=your-access-key&symbols=TWD,GBP&format=1";
+static const char* CURRURL = "http://data.fixer.io/api/latest?access_key=0a371f7901a6260a0ea11865f1ad98da&symbols=TWD,GBP&format=1";
 
 const int NTP_PACKET_SIZE = 48; // NTP time is in the first 48 bytes of message
 static byte packetBuffer[NTP_PACKET_SIZE]; //buffer to hold incoming & outgoing packets
 static const char ntpServerName[] = "3.tw.pool.ntp.org";
 const int max_reattempts = 5;
 const int timeZone = 8;     // HKT
+static const char* uhost = "wemos-clockcal";
 
 byte const segs [] =
 {

@@ -21,12 +21,15 @@
  * V1.1.0 Tested 9/5/18
  *
  */
- #include "Arduino.h"
+#include "Arduino.h"
 #include <Wire.h>
 #include "TimeLib.h"
-#include "DHT.h"
+#include "DHTnew.h"
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
+#include <ESP8266mDNS.h>
+#include <ESP8266WebServer.h>
+#include <ESP8266HTTPUpdateServer.h>
 #include <WiFiUdp.h>
 #include "DebugMacros.h"
 #include <Thread.h>
@@ -64,6 +67,13 @@ Thread* currThread    = new Thread();
 Thread* ntpThread     = new Thread();
 Thread* updateThread  = new Thread();
 Thread* dht11Thread   = new Thread();
+
+ESP8266WebServer httpServer(80);
+ESP8266HTTPUpdateServer httpUpdater;
+
+IPAddress ip(192,168,1,145);
+IPAddress gateway(192,168,1,1);
+IPAddress subnet(255,255,255,0);
 
 void handleUpdate (void)
 {
@@ -118,6 +128,7 @@ void setup() {
   // init the DHT11
   dht.begin();
   WiFi.begin(ssid, pass);
+  WiFi.config(ip,gateway,subnet);
   display.init();
   initDisplay(); // set background
   while (WiFi.status() != WL_CONNECTED ) {
@@ -125,6 +136,14 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
+  MDNS.begin(uhost);
+
+  httpUpdater.setup(&httpServer);
+  httpServer.begin();
+
+  MDNS.addService("http", "tcp", 80);
+  Serial.printf("HTTPUpdateServer ready! Open http://%s.local/update in your browser\n", uhost);
+
   Udp.begin(localPort); // for NTP
 
   // initiate threads
@@ -155,4 +174,5 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   ThreadControl.run();
+  httpServer.handleClient();
 }

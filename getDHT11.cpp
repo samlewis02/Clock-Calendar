@@ -4,10 +4,13 @@
 //
 // Returns: String with temperature and humidity
 //
-#include "DHT.h"
+#include "DHTnew.h"
 #include "common.h"
 #include "getDHT11.h"
 #include "DebugMacros.h"
+
+// uncomment to show X for bad reading
+//#define SHOW_BAD
 
 String getDHT11() {
   int tt, hh;
@@ -17,12 +20,17 @@ String getDHT11() {
   // only update T and H if successfully read from DHT11
   // otherwise read old values
   // if OK write new values
+  #ifdef SHOW_BAD
   String notok = "   X";
+  #else
+  String notok = "";
+  #endif
+
   tt = dht.readTemperature();
   hh = dht.readHumidity();
   if (isnan(tt) || isnan(hh) || tt > 100 || hh > 100) {
     DPRINTLN(F("Bad tt or hh"));
-    DPRINT(tt); DPRINT(" "); DPRINTLN(hh);
+    DPRINT(tt, HEX); DPRINT(" "); DPRINTLN(hh, HEX);
     tt = old_tt;
     hh = old_hh;
   }

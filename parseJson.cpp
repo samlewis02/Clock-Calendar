@@ -5,6 +5,7 @@
 //
 // Returns: double with conversion value
 //
+#include "Arduino.h"
 #include <ArduinoJson.h>
 #include "parseJson.h"
 #include "DebugMacros.h"
@@ -23,8 +24,8 @@ double parse_json(String r)
     return 0;
   }
   else {
-    double sourceRate = root["rates"]["FROM_CURR"];
-    double targetRate = root["rates"]["TO_CURR"];
-    return targetRate / sourceRate;
+    double GBPrate = root["rates"]["GBP"];
+    double TWDrate = root["rates"]["TWD"];
+    return TWDrate / GBPrate;
    }
 }

@@ -21,6 +21,7 @@
   ]
   }
 */
+#include "Arduino.h"
 #include "Timelib.h"
 #include <ArduinoJson.h>
 #include "parseString.h"
